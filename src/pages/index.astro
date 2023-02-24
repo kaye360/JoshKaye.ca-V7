@@ -1,4 +1,17 @@
 ---
+import About from "./components/About.astro";
+import Class from "./components/Class.astro";
+import ClassList from "./components/ClassList.astro";
+import Course from "./components/Course.astro";
+import CourseList from "./components/CourseList.astro";
+import Education from "./components/Education.astro";
+import Footer from "./components/Footer.astro";
+import Hero from "./components/Hero.astro";
+import Nav from "./components/Nav.astro";
+import NavLink from "./components/NavLink.astro";
+import Portfolio from "./components/Portfolio.astro";
+import Project from "./components/Project.astro";
+import SocialLink from "./components/SocialLink.astro";
 ---
 
 <html lang="en">
@@ -10,6 +23,126 @@
 		<title>Astro</title>
 	</head>
 	<body>
-		<h1>Astro</h1>
+
+
+
+		<a href="#content" id="skip">Skip to content</a>
+
+
+
+		<Nav>
+			<ul class="hidden md:flex items-center gap-4 justify-end ">
+				<SocialLink link="#googe" image="imghere.jpg" alt="hoohaa" />
+				<SocialLink link="#googe" image="imghere.jpg" alt="hoohaa" />
+				<SocialLink link="#googe" image="imghere.jpg" alt="hoohaa" />
+			</ul>
+
+			<ul class="hidden md:flex items-center gap-4 justify-end ">
+				<li>{'{'}</li>
+				<NavLink link="#home">home</NavLink>
+				<NavLink link="#portfolio">portfolio</NavLink>
+				<NavLink link="#about">about</NavLink>
+				<NavLink link="#resume">resume</NavLink>
+				<NavLink link="#contact">contact</NavLink>
+				<li>{'}'}</li>
+			</ul>
+		</Nav>
+
+
+		<main id="content">
+
+
+
+			<Hero />
+
+
+
+			<Portfolio>
+
+				<Project
+					heading="Project Name"
+					subheading="subheading here"
+					topics="poo, pee, fart, butt"
+					image="image"
+				>
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia facilis hic eos explicabo ducimus rerum maiores minima aliquid officia, cum quae facere sint excepturi corrupti dolor, placeat aliquam maxime nisi!
+				</Project>
+			
+				<Project
+					heading="Project Name@yo mama"
+					subheading="subheading here"
+					topics="poo, pee, fart, butt, double butt"
+					image="image"
+				>
+					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia facilis hic eos explicabo ducimus rerum maiores minima aliquid officia, cum quae facere sint excepturi corrupti dolor, placeat aliquam maxime nisi!
+				</Project>
+			
+			</Portfolio>
+
+
+
+			<About />
+
+
+
+			<Education>
+
+				<CourseList>
+
+					<Course 
+						title="React Tutorial and Projects" 
+						subtitle="Udemy (60 hours)" 
+					/>
+
+					<Course 
+						title="Software Architecture and Clean Code Design in OOP" 
+						subtitle="Udemy (20 hours)" 
+					/>
+
+					<Course 
+						title="The Modern Javascript Bootcamp" 
+						subtitle="Udemy (52 hours)" 
+					/>
+
+					<Course 
+						title="Full Stack JavaScript path" 
+						subtitle="The Odin Project (127 Lessons)" 
+					/>
+
+				</CourseList>
+
+				
+				<ClassList>
+
+					<Class
+						title="SOLID Principles: Introducing Software Architecture & Design"
+						subtitle="Udemy (2 hours)"
+					/>
+
+					<Class
+						title="Object Oriented PHP & MVC"
+						subtitle="Udemy (6.5 hours)"
+					/>
+
+					<Class
+						title="Laravel From Scratch 2022"
+						subtitle="Traversy Media (4 hours)"
+					/>
+
+					<Class
+						title="Learn to Code with Ruby"
+						subtitle="Udemy (31.5 hours)"
+					/>
+
+				</ClassList>
+
+			</Education>
+
+
+		</main>
+
+		<Footer />
+
+
 	</body>
 </html>

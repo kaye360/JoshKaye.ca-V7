@@ -1,0 +1,39 @@
+---
+interface Props  {
+    heading: string,
+    subheading: string,
+    topics: string,
+    demoLink?: string,
+    repoLink?: string,
+    liveLink?: string,
+    image: string
+}
+
+const {
+    heading, 
+    subheading, 
+    topics, 
+    demoLink, 
+    repoLink, 
+    liveLink, 
+    image
+} = Astro.props
+---
+
+<section>
+    <h3>{heading}</h3>
+
+        <span>{subheading}</span>
+
+        <p>{topics}</p>
+
+        <slot />
+
+        <div>
+            {demoLink && <a href={demoLink}>View Demo</a> }
+            {repoLink && <a href={repoLink}>Github Repo</a> }
+            {liveLink && <a href={liveLink}>Live Site</a> }
+        </div>
+
+        <img src={image} alt="Project Screenshot" />
+</section>

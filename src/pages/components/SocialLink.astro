@@ -1,0 +1,13 @@
+---
+interface Props {
+    link: string,
+    image: string,
+    alt: string
+}
+const {link, image, alt} = Astro.props
+---
+
+<li>
+    <a href={link}>{image}</a>{alt}
+
+</li>
