@@ -2,10 +2,27 @@
 
 ---
 
-<section id="education">
+<section id="education" class="max-width px-def">
 
-    <h2>education/courses</h2>
+    <h2 class="my-8">education/courses</h2>
 
-    <slot />
+    <div class="grid gap-8 education-grid">
+
+        <slot />
+        
+    </div>
+
 
 </section>
+
+
+<style>
+
+@media screen and (min-width : 768px) {
+
+    .education-grid {
+        grid-template-columns: 2fr 1.2fr;
+    }
+}
+
+</style>

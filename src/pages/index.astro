@@ -1,8 +1,10 @@
 ---
+import '../main.css'
 import About from "./components/About.astro";
 import Analytics from "./components/Analytics.astro";
 import Class from "./components/Class.astro";
 import ClassList from "./components/ClassList.astro";
+import Contact from "./components/Contact.astro";
 import Course from "./components/Course.astro";
 import CourseList from "./components/CourseList.astro";
 import Education from "./components/Education.astro";
@@ -13,7 +15,8 @@ import NavLink from "./components/NavLink.astro";
 import Portfolio from "./components/Portfolio.astro";
 import Project from "./components/Project.astro";
 import SocialLink from "./components/SocialLink.astro";
-import '../main.css'
+import Skills from "./components/Skills.astro";
+import SkipToContent from './components/SkipToContent.astro';
 ---
 
 <html lang="en" class="scroll-smooth scroll-pt-[100px]">
@@ -27,12 +30,13 @@ import '../main.css'
 
 
 
-		<a href="#content" id="skip">Skip to content</a>
+		<SkipToContent />		
 
 
 
 		<Nav>
-			<ul class="hidden md:flex items-center gap-4 justify-end">
+			<ul class="flex items-center gap-4 justify-end">
+
 				<SocialLink 
 					link="https://github.com/kaye360/" 
 					image="/icon/github.svg" 
@@ -50,9 +54,11 @@ import '../main.css'
 					image="/icon/instagram.svg" 
 					alt="Instagram" 
 				/>
+
 			</ul>
 
-			<ul class="hidden md:flex items-center gap-4 justify-end">
+			<ul class="flex items-center gap-4 justify-end">
+
 				<li>{'{'}</li>
 				<NavLink link="#home">home</NavLink>
 				<NavLink link="#portfolio">portfolio</NavLink>
@@ -60,6 +66,7 @@ import '../main.css'
 				<NavLink link="#resume">resume</NavLink>
 				<NavLink link="#contact">contact</NavLink>
 				<li>{'}'}</li>
+
 			</ul>
 		</Nav>
 
@@ -102,6 +109,10 @@ import '../main.css'
 				</Project>
 			
 			</Portfolio>
+
+
+
+			<Skills />
 
 
 
@@ -162,6 +173,9 @@ import '../main.css'
 
 			</Education>
 
+
+
+			<Contact />
 
 		</main>
 

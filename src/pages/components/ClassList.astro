@@ -1,11 +1,15 @@
 ---
+import Type from "./Type.astro";
 
 ---
 
-<div>
+<div class="bg-gray-100 p-8">
 
-    <h3>Classes</h3>
+    <h3 class="text-xl font-semibold mb-6">Classes</h3>
 
-    <slot />
+    <Type>
+        <slot />
+
+    </Type>
     
 </div>

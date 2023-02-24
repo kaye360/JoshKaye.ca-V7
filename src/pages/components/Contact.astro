@@ -1,85 +1,98 @@
 ---
-
+import Type from "./Type.astro";
 ---
 
-<section id="contact">
+<section id="contact" class="grid md:grid-cols-2 gap-8 max-width px-def">
 
-    <h2>let's talk</h2>
+	<div class="md:col-span-2">
+		<h2>let's talk</h2>
+	
+		<p class="my-8">* required fields</p>
+	</div>
 
-    <p>
-        * required fields
-    </p>
+	<form id="email-form" action="email-handler.php" method="post">
+		<div class="flex flex-col gap-8">
+			<label>
+				<span>name*</span>
+				<input type="text" name="name" id="name" required />
+			</label>
 
-    <form id="email-form" action="email-handler.php" method="post">
-        <div class="contact-form">
+			<label>
+				<span>email*</span>
+				<input type="email" name="email" id="email" required />
+			</label>
 
-          <label>
-            <span>name*</span>
-            <input type="text" name="name" id="name" required>
-          </label>
+			<label>
+				<span>phone</span>
+				<input type="tel" name="phone" id="phone" />
+			</label>
 
-          <label>
-            <span>email*</span>
-            <input type="email" name="email" id="email" required>
-          </label>
+			<label>
+				<span>message*</span>
+				<textarea name="message" id="message" required class="h-32"></textarea>
+			</label>
 
-          <label>
-            <span>phone</span>
-            <input type="tel" name="phone" id="phone">
-          </label>
+			<div class="flex gap-4 items-center">
+				<input type="submit" value="Send Email" class="cursor-pointer" />
+				
+				<div id="email-response">Sending...</div>
+			</div>
 
-          <label>
-            <span>message*</span>
-            <textarea name="message" id="message" required></textarea>
-          </label>
+		</div>
+	</form>
 
-          <input type="submit" value="Send Email" class="btn">
+	<Type className="p-6 bg-red-100">
+		<p>
+			For web design and development services, job opportunities, or
+			general information, feel free to use the contact form, email, or
+			social media to get in touch with me.
+		</p>
 
-          <div id="email-response" class="mt1"></div>
-    
-        </div>
-      </form>
+		<p>
+			I am always open to discussing new projects or opportunities to be a
+			part of!
+		</p>
 
-      <div class="contact-info">
+		<div class="grid gap-4 contact-info-grid">
+			<img src="/icon/email.svg" alt="Email Icon" />
+			<a href="mailto:jkaye@shaw.ca">jkaye@shaw.ca</a>
 
-        <p>
-          For web design and development services, job opportunities, or general information, feel free to use the contact form, email, or social media to get in touch with me.
-        </p>
+			<img src="/icon/location.svg" alt="Location Icon" />
+			<span class="clr-secondary-5"> port coquitlam, bc</span>
 
-        <p>
-          I am always open to discussing new projects or opportunities to be a part of!
-        </p>
+			<img src="/icon/github.svg" alt="GitHub Icon" />
+			<a href="https://github.com/kaye360" target="_blank">
+				@kaye360
+			</a>
 
-        <div class="contact-icons">
+			<img src="/icon/linkedin.svg" alt="LinkedIn Icon" />
+			<a href="https://www.linkedin.com/in/josh-kaye-ca/" target="_blank">
+				@josh-kaye-ca
+			</a>
 
-          <img src="./img/contact/email.svg" alt="">
-          <span>
-            <a href="mailto:jkaye@shaw.ca">jkaye@shaw.ca</a>
-          </span>
-
-          <img src="./img/contact/location.svg" alt="">
-          <span class="clr-secondary-5">
-            port coquitlam, bc
-          </span>
-
-          <img src="./img/contact/github.svg" alt="">
-          <span>
-            <a href="https://github.com/kaye360">@kaye360</a>
-          </span>
-
-          <img src="./img/contact/linkedin.svg" alt="">
-          <span>
-            <a href="https://www.linkedin.com/in/josh-kaye-ca/" target="_blank">@josh-kaye-ca</a>
-          </span>
-
-          <img src="./img/contact/instagram.svg" alt="">
-          <span>
-            <a href="https://www.instagram.com/kaye.360/" target="_blank">@kaye.360</a>
-          </span>
-
-
-        </div>
-    </div>
-
-
+			<img src="/icon/instagram.svg" alt="Instagram Icon" />
+			<a href="https://www.instagram.com/kaye.360/" target="_blank">
+				@kaye.360
+			</a>
+		</div>
+	</Type>
 </section>
+
+
+<style>
+
+	label {
+		display :grid;
+		gap : 2;
+	}
+
+	input, textarea {
+		background-color: skyblue;
+		max-width: 50ch;
+	}
+
+	.contact-info-grid {
+		grid-template-columns: 25px 1fr;
+	}
+
+</style>

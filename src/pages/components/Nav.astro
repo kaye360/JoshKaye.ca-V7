@@ -1,14 +1,14 @@
 ---
 ---
 
-<nav class="fixed top-0 left-0 right-0">
+<nav class="fixed top-0 left-0 right-0 z-[9999]">
 <div class="flex justify-between items-center py-4 bg-gray-300 mx-auto px-def w-full max-w-7xl">
 
 	<div>
 		<a href="#home"> JOSHKAYE.CA</a>
 	</div>
 
-	<button class="md:hidden">
+	<button id="mobile-nav-button" class="md:hidden">
 		<svg
 			width="30"
 			height="30"
@@ -37,7 +37,7 @@
 		</svg>
 	</button>
 
-	<div class="hidden md:block">
+	<div class="menu-wrapper">
 		<slot />
 	</div>
 
@@ -45,3 +45,36 @@
 </nav>
 
 <div class="menu-highlight"></div>
+
+
+<style is:global>
+
+@media screen and (max-width : 768px) {
+	.menu-wrapper {
+		position : fixed;	
+		inset : 0;
+		z-index: -1;
+		transform: translateX(110vw);
+		transition: all 250ms;
+		background-color: azure;
+		display : grid;
+		place-items: center;
+	}
+
+	.mobile-nav-is-open .menu-wrapper {
+		transform: none;
+	}
+}
+
+</style>
+
+
+<script>
+
+	const mobileNavBtn = document.querySelector('#mobile-nav-button') as HTMLButtonElement
+	const body = document.body
+	
+	mobileNavBtn.addEventListener('click', () => {
+		body.classList.toggle('mobile-nav-is-open')
+	})
+</script>
