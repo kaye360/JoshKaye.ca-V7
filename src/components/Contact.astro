@@ -10,7 +10,7 @@ import Type from "./Type.astro";
 		<p class="my-8">* required fields</p>
 	</div>
 
-	<form id="email-form" action="email-handler.php" method="post">
+	<form id="email-form" action="email-handler.php" method="post" data-netlify="true">
 		<div class="flex flex-col gap-8">
 			<label>
 				<span>name*</span>
@@ -33,9 +33,11 @@ import Type from "./Type.astro";
 			</label>
 
 			<div class="flex gap-4 items-center">
+
+				<input type="hidden" name="subject" value="JoshKaye.ca Inquiry" />
 				<input type="submit" value="Send Email" class="cursor-pointer" />
 				
-				<div id="email-response">Sending...</div>
+				<div id="form-result">Sending...</div>
 			</div>
 
 		</div>
@@ -96,3 +98,27 @@ import Type from "./Type.astro";
 	}
 
 </style>
+
+
+<script>
+const handleSubmit = (event: Event) => {
+	event.preventDefault();
+
+	const myForm: any = event.target
+	const formData: any = new FormData(myForm)
+	const formResult = document.querySelector('#form-result') as HTMLDivElement
+
+	fetch("/", {
+		method: "POST",
+		headers: { "Content-Type": "application/x-www-form-urlencoded" },
+		body: new URLSearchParams(formData).toString(),
+	})
+	.then( () => formResult.innerHTML = 'Email Sent!' )
+	.catch( () => formResult.innerHTML = 
+		'Something went wrony. Please try using another method instead.'
+)}
+
+const form = document.querySelector("form") as HTMLFormElement
+form.addEventListener("submit", handleSubmit);
+
+</script>
