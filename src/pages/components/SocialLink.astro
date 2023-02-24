@@ -8,6 +8,7 @@ const {link, image, alt} = Astro.props
 ---
 
 <li>
-    <a href={link}>{image}</a>{alt}
-
+    <a href={link} target="_blank">
+        <img src={image} alt={alt} />
+    </a>
 </li>

@@ -1,38 +1,47 @@
 ---
-
 ---
 
-<nav class="fixed top-0 left-0 right-0 flex justify-between items-center p-4 bg-gray-300">
+<nav class="fixed top-0 left-0 right-0">
+<div class="flex justify-between items-center py-4 bg-gray-300 mx-auto px-def w-full max-w-7xl">
 
-    <div>
-      <a href="#home">
-        JOSHKAYE.CA
-      </a>
-    </div>
-    
-    <button class="md:hidden">
-  
-      <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <line 
-          class="menu-btn-line-top" 
-          x1="1" y1="10" x2="29" y2="10" 
-          stroke="#333333" stroke-width="2" stroke-linecap="round"/>
-        <line 
-          class="menu-btn-line-bottom" 
-          x1="1" y1="20" x2="29" y2="20" 
-          stroke="#333333" stroke-width="2" stroke-linecap="round"/>
-      </svg>
-  
-    </button>
-  
-  
-    <div class="hidden md:block">
+	<div>
+		<a href="#home"> JOSHKAYE.CA</a>
+	</div>
 
-      <slot />
-  
-    </div>
-    
-    
-  </nav>
-  
-  <div class="menu-highlight"></div>
+	<button class="md:hidden">
+		<svg
+			width="30"
+			height="30"
+			viewBox="0 0 30 30"
+			fill="none"
+			xmlns="http://www.w3.org/2000/svg"
+		>
+			<line
+				class="menu-btn-line-top"
+				x1="1"
+				y1="10"
+				x2="29"
+				y2="10"
+				stroke="#333333"
+				stroke-width="2"
+				stroke-linecap="round"></line>
+			<line
+				class="menu-btn-line-bottom"
+				x1="1"
+				y1="20"
+				x2="29"
+				y2="20"
+				stroke="#333333"
+				stroke-width="2"
+				stroke-linecap="round"></line>
+		</svg>
+	</button>
+
+	<div class="hidden md:block">
+		<slot />
+	</div>
+
+</div>
+</nav>
+
+<div class="menu-highlight"></div>

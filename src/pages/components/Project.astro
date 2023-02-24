@@ -20,20 +20,26 @@ const {
 } = Astro.props
 ---
 
-<section>
+<div class="px-def max-width">
     <h3>{heading}</h3>
 
-        <span>{subheading}</span>
-
-        <p>{topics}</p>
-
-        <slot />
+    <div class="grid md:grid-cols-2 gap-4">
 
         <div>
-            {demoLink && <a href={demoLink}>View Demo</a> }
-            {repoLink && <a href={repoLink}>Github Repo</a> }
-            {liveLink && <a href={liveLink}>Live Site</a> }
+            <span>{subheading}</span>
+            
+            <p>{topics}</p>
+            
+            <slot />
+            
+            <div>
+                {demoLink && <a href={demoLink}>View Demo</a> }
+                {repoLink && <a href={repoLink}>Github Repo</a> }
+                {liveLink && <a href={liveLink}>Live Site</a> }
+            </div>
         </div>
-
+        
         <img src={image} alt="Project Screenshot" />
-</section>
+
+    </div>
+</div>
