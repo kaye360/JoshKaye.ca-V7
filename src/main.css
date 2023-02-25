@@ -2,10 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+
 @layer base {
+
+    :root {
+        --color-primary-100 : 202, 14%, 90%;
+        --color-primary-200 : 202, 14%, 80%;
+        --color-primary-300 : 202, 14%, 70%;
+        --color-primary-400 : 202, 14%, 60%;
+        --color-primary-500 : 202, 14%, 50%;
+        --color-primary-600 : 202, 14%, 40%;
+        --color-primary-700 : 202, 14%, 30%;
+        --color-primary-800 : 202, 14%, 20%;
+        --color-primary-900 : 202, 14%, 10%;
+
+        --color-secondary-100 : 345, 45%, 87%;
+        --color-secondary-200 : 345, 45%, 80%;
+        --color-secondary-300 : 345, 45%, 70%;
+        --color-secondary-400 : 345, 45%, 60%;
+        --color-secondary-500 : 345, 45%, 50%;
+        --color-secondary-600 : 345, 45%, 40%;
+        --color-secondary-700 : 345, 45%, 30%;
+        --color-secondary-800 : 345, 45%, 20%;
+        --color-secondary-900 : 345, 45%, 10%;
+    }
+
+    html {
+        scroll-padding: 100px 0 0 0;
+    }
+
     h1 {
-        font-size: 3rem;
+        font-size: 2.6rem;
         font-weight: bold;
+        line-height: 2.5rem;
+        max-width : 500px;
     }
 
     h2 {

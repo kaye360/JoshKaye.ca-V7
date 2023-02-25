@@ -1,38 +1,43 @@
 ---
+import Icon from "./Icon.astro";
 ---
 
-<section id="home" class="grid md:grid-cols-2 items-center max-w-7xl min-h-[80vh] overflow-hidden px-def">
+<section id="home" class="relative grid md:grid-cols-2 items-center gap-8 max-w-7xl min-h-[80vh] overflow-hidden px-def">
 
-    <!-- <div class="hero-wrapper-bg"></div> -->
-
-    <div class="flex flex-col gap-8">
+    <div id="hero-intro" class="flex flex-col gap-8 text-xl">
         <div class="slide-right">
 
-            <span> hi, I'm Josh and...</span>
+            <p class="-rotate-3"> hi, I'm Josh and...</p>
 
-            <h1 class="">
+            <h1 class="-rotate-2">
                 i develop
-                <span> websites</span>
+                <span class="font-secondary text-6xl highlight"> websites</span>
                 and
-                <span> web apps</span>
+                <span class="font-secondary text-6xl highlight"> web apps</span>
             </h1>
 
         </div>
 
-        <div class="slide-right">
+        <div class="slide-right -rotate-1">
             hiring a web developer for your next project? based out of Port
             Coquitlam, BC, I am ready to help you out.
         </div>
         
-        <div class="slide-right">
-            <a href="#portfolio"> view my work</a>
-            <!-- Make CTA'S big -->
+        <div class="slide-right rotate-1">
+            <a href="#portfolio" class="inline-flex items-center gap-2 hover:bg-secondary-200 bg-primary-800 text-secondary-200 hover:text-primary-800 px-8 py-6 font-bold transition-all duration-175"> 
+                view my work
+                <Icon>rocket_launch</Icon>
+            </a>
             
-            <a href="#contact"> let's talk</a>
+            <a href="#contact" class="inline-flex items-center gap-2 px-6 font-bold hover:tracking-[0.3rem] transition-all duration-150">
+                let's talk
+                <Icon>chat_bubble_outline</Icon>
+            </a>
         </div>
     </div>
 
-    <div class="relative  slide-left">
+    <div class="relative slide-left">
+        <div id="hero-img-overlay"></div>
         <img src="./img/hero-2.png" />
     </div>
 
@@ -40,14 +45,82 @@
 
 
 <style>
-    .hero-wrapper-bg {
+
+@media screen and (min-width : 769px) {
+
+    #hero-img-overlay {
         position : absolute;
-        top : 40%;
-        right : 0;
-        z-index : 999;
-        width : 100px;
-        height : 100px;
-        /* background-color: red; */
-        backdrop-filter : invert(100%);
+        inset : 0;
+        z-index: 200;
+        rotate : -3deg;
+        backdrop-filter: invert(100);
+        scale : 0.1
     }
+}
+
+@supports ( -webkit-text-stroke: 1.5px hsl( var(--color-primary-600) ) ) {
+
+    .highlight {
+        -webkit-text-stroke: 1.5px hsl( var(--color-primary-600) );
+        color : transparent;
+        background: linear-gradient(
+            90deg, 
+            transparent 50%, 
+            hsl( var(--color-primary-300) ) 55%, 
+            transparent
+        );
+
+        background-size : 200%;
+        background-position : left;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+
+        animation : highlight-anim 10s ease-in-out infinite alternate;
+    }
+
+    @keyframes highlight-anim {
+        from { background-position : left; }
+        90% { background-position : left; }
+        to { background-position : right; }
+    }
+
+}
 </style>
+
+
+<script is:inline>
+
+
+gsap.to('#hero-img-overlay', {
+    scale : 0.7,
+    duration : 0.5,
+    ease : 'back'
+})
+
+gsap.to('#hero-img-overlay', {
+    scrollTrigger : {
+        trigger : '#home',
+        start : 'top 0%',
+        end : 'bottom 0%',
+        scrub : 2,
+        toggleActions : "restart reverse none none",
+    },
+    y: 100,
+    duration : 2,
+    ease : 'power4.out'
+})
+
+gsap.to('#hero-intro', {
+    scrollTrigger : {
+        trigger : '#home',
+        start : 'top 0%',
+        end : 'bottom 0%',
+        scrub : 2,
+        toggleActions : "restart reverse none none",
+    },
+    y: 50,
+    duration : 1.3,
+    ease : 'power4.out'
+})
+
+</script>
