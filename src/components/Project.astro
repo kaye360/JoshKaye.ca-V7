@@ -1,8 +1,10 @@
 ---
+import Type from './Type.astro';
+
 interface Props  {
     heading: string,
     subheading: string,
-    topics: string,
+    topics?: string,
     demoLink?: string,
     repoLink?: string,
     liveLink?: string,
@@ -20,26 +22,83 @@ const {
 } = Astro.props
 ---
 
-<div class="px-def max-width">
-    <h3>{heading}</h3>
-
-    <div class="grid md:grid-cols-2 gap-4">
-
-        <div>
-            <span>{subheading}</span>
-            
-            <p>{topics}</p>
-            
-            <slot />
-            
-            <div>
-                {demoLink && <a href={demoLink}>View Demo</a> }
-                {repoLink && <a href={repoLink}>Github Repo</a> }
-                {liveLink && <a href={liveLink}>Live Site</a> }
-            </div>
-        </div>
+<div class="px-def max-width overflow-hidden first:border-none border-t-4 border-primary-300 pt-24">
+<div class="grid md:grid-cols-2 gap-4 project bg-primary-200 bg-opacity-70 p-8">
         
-        <img src={image} alt="Project Screenshot" />
+    <Type>
+        <h3 class="font-semibold text-primary-700">{heading}</h3>
+        <span class=" text-primary-700">{subheading}</span>
+        
 
-    </div>
+        { topics && <p class=" text-primary-500">{topics}</p> }
+        
+        <slot />
+        
+        <div>
+            {demoLink && <a href={demoLink}>View Demo</a> }
+            {repoLink && <a href={repoLink}>Github Repo</a> }
+            {liveLink && <a href={liveLink}>Live Site</a> }
+        </div>
+    </Type>
+    
+    <img src={image} alt="Project Screenshot" />
+
 </div>
+</div>
+
+
+<style>
+
+a {
+    position : relative;
+    display : inline-block;
+    padding-inline : 1rem;
+    padding-block : 0.5rem;
+    margin-right : 1rem;
+    font-weight: 600;
+    color : hsl( var(--color-secondary-200) );
+    transition : color 250ms ease-out;
+}
+
+a:hover {
+    color : hsl( var(--color-primary-800) );
+}
+
+a::before {
+    content : '';
+    position : absolute;
+    inset : 0;
+    z-index : -2;
+    background-color: hsl( var(--color-primary-800) );
+}
+
+a::after {
+    content : '';
+    position : absolute;
+    inset : 0;
+    z-index : -1;
+    background-color: hsl( var(--color-secondary-200) );
+    clip-path: circle(0.0% at 0 100%);
+    animation: none;
+}
+
+a:hover::after {
+    animation : a-after 250ms ease-out both;
+}
+
+@keyframes a-after {
+    from {
+        clip-path: circle(10.4% at 0 100%);
+    }
+
+    to {
+        clip-path: circle(141.4% at 0 100%);
+    }
+}
+
+
+
+
+
+</style>
+

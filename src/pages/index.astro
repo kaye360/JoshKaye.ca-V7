@@ -87,7 +87,7 @@ import SkipToContent from '../components/SkipToContent.astro';
 		</Nav>
 
 
-		<main id="content" class="flex flex-col items-center gap-24 mt-20">
+		<main id="content" class="flex flex-col items-center gap-24">
 
 
 
@@ -98,30 +98,103 @@ import SkipToContent from '../components/SkipToContent.astro';
 			<Portfolio>
 
 				<Project
-					heading="Project Name"
-					subheading="subheading here"
-					topics="poo, pee, fart, butt"
-					image="image"
+					heading="BookStack (Featured)"
+					subheading="Personal Library Web App"
+					topics="Full-Stack, React, TypeScript, PHP, MYSQL, Tailwind"
+					image="/img/bookstack.png"
+					demoLink="https://bookstack.joshkaye.ca/"
+					repoLink="https://github.com/kaye360/bookstack-v2"
 				>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia facilis hic eos explicabo ducimus rerum maiores minima aliquid officia, cum quae facere sint excepturi corrupti dolor, placeat aliquam maxime nisi!
+					<p>
+						This web app has the following notable features:
+					</p>
+		
+					<ul>
+						<li>Custom, responsive tailwind layout with light/dark mode</li>
+						<li>React User Interface with custom hooks, React Router, and Tanstack Queries</li>
+						<li>User notifications and a community feed showing user activity</li>
+						<li>User signup, login, and authentication</li>
+						<li><strong>Custom REST API and router</strong> with user defined routes</li>
+						<li>Backend database class to build queries efficiently</li>
+						<li>GitHub Actions for automatic continuous deployment</li>
+					</ul>
 				</Project>
 			
 				<Project
-					heading="Project Name@yo mama"
-					subheading="subheading here"
-					topics="poo, pee, fart, butt, double butt"
-					image="image"
+					heading="Space App"
+					subheading="Solar System Web App"
+					topics="React, TypeScript, Tailwind"
+					image="/img/space-app.png"
+					demoLink="https://joshs-space-app.netlify.app"
+					repoLink="https://github.com/kaye360/space-app"
 				>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia facilis hic eos explicabo ducimus rerum maiores minima aliquid officia, cum quae facere sint excepturi corrupti dolor, placeat aliquam maxime nisi!
+					<p>
+						This mini app fetches info from the Solar System OpenData API and features a custom UI for browsing information about each planet. The UI animations were made custom with CSS.
+					</p>
 				</Project>
 			
 				<Project
-					heading="Project Name@yo mama"
-					subheading="subheading here"
-					topics="poo, pee, fart, butt, double butt"
-					image="image"
+					heading="Spendly"
+					subheading="Money Tracking Web App"
+					topics="Full-Stack, PHP, MYSQL, react, javascript, CSS"
+					image="/img/spendly.png"
+					demoLink="https://joshkaye.ca/projects/spendly/"
+					repoLink="https://github.com/kaye360/money-tracker"
 				>
-					Lorem ipsum dolor, sit amet consectetur adipisicing elit. Mollitia facilis hic eos explicabo ducimus rerum maiores minima aliquid officia, cum quae facere sint excepturi corrupti dolor, placeat aliquam maxime nisi!
+					<p>
+						Spendly is a custom Full-Stack web app that I've programmed from the ground up. It features a front-end UI made with React, and a backend with PHP and MYSQL.
+					</p>
+
+					<p>
+						User info, budgets, transactions, and forecast entries are stored in a MYSQL databased that can be accessed through my custom API.
+					</p>
+
+					<p>
+						Hint: Log in as "guest123" with password "123456"
+					</p>
+				</Project>
+
+				<Project
+					heading="Vitality Fitness"
+					subheading="Personal Trainer Wordpress Site"
+					topics="HTML, CSS, Wordpress, PHP"
+					image="/img/vitality-fitness.png"
+					liveLink="https://vitality-fitness.ca/"
+				>
+					<p>
+						For this project, I worked with the client, Nola, to identify her business goals for her website.
+					</p>
+
+					<p>
+						I created a custom, responsive Wordpress theme for Vitality Fitness. The project required custom blocks and custom JavaScript Image Slider.
+					</p>
+				</Project>
+
+				<Project
+					heading="Bikes & Brews"
+					subheading="Local Biking/Beer Enthusiant Wordpress Site"
+					topics="HTML, CSS, Wordpress, PHP"
+					image="/img/bikes-and-brews.png"
+					liveLink="https://bikesandbrews.ca/"
+				>
+					<p>
+						For this project, I worked with the client, Bill, to create website for a local cycling and brewery group.
+					</p>
+
+					<p>
+						I created a custom, responsive WordPress theme for for Tri City Bikes and Brews.
+					</p>
+				</Project>
+
+				<Project
+					heading="More GitHub Projects"
+					subheading="Smaller/Experimental projects of mine"
+					image="/img/github.png"
+					liveLink="https://github.com/kaye360"
+				>
+					<p>
+						You can view more of my work on my GitHub account. Here I have smaller, experimental, and tutorial projects that I have created.
+					</p>
 				</Project>
 			
 			</Portfolio>
