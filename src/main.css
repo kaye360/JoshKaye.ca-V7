@@ -6,15 +6,15 @@
 @layer base {
 
     :root {
-        --color-primary-100 : 202, 14%, 90%;
-        --color-primary-200 : 202, 14%, 80%;
-        --color-primary-300 : 202, 14%, 70%;
-        --color-primary-400 : 202, 14%, 60%;
-        --color-primary-500 : 202, 14%, 50%;
-        --color-primary-600 : 202, 14%, 40%;
-        --color-primary-700 : 202, 14%, 30%;
-        --color-primary-800 : 202, 14%, 20%;
-        --color-primary-900 : 202, 14%, 10%;
+        --color-primary-100 : 200, 14%, 90%;
+        --color-primary-200 : 200, 14%, 80%;
+        --color-primary-300 : 200, 14%, 70%;
+        --color-primary-400 : 200, 14%, 60%;
+        --color-primary-500 : 200, 14%, 50%;
+        --color-primary-600 : 200, 14%, 40%;
+        --color-primary-700 : 200, 14%, 30%;
+        --color-primary-800 : 200, 14%, 20%;
+        --color-primary-900 : 200, 14%, 10%;
 
         --color-secondary-100 : 345, 45%, 87%;
         --color-secondary-200 : 345, 45%, 80%;
@@ -53,6 +53,11 @@
     p {
         line-height: 1.7rem;
     }
+
+    img, svg {
+        max-width: 100%;
+    }
+
 }
 
 @layer components {

@@ -1,7 +1,6 @@
 ---
 interface Props {
     link: string,
-    image: string,
     alt: string
 }
 const {link, image, alt} = Astro.props
@@ -9,6 +8,6 @@ const {link, image, alt} = Astro.props
 
 <li>
     <a href={link} target="_blank">
-        <img src={image} alt={alt} />
+        <slot />
     </a>
 </li>

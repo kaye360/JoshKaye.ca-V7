@@ -18,6 +18,9 @@ import Project from "../components/Project.astro";
 import SocialLink from "../components/SocialLink.astro";
 import Skills from "../components/Skills.astro";
 import SkipToContent from '../components/SkipToContent.astro';
+import GithubIcon from '../components/icons/GithubIcon.astro';
+import InstagramIcon from '../components/icons/InstagramIcon.astro';
+import LinkedinIcon from '../components/icons/LinkedinIcon.astro';
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -55,21 +58,25 @@ import SkipToContent from '../components/SkipToContent.astro';
 
 				<SocialLink 
 					link="https://github.com/kaye360/" 
-					image="/icon/github.svg" 
 					alt="GitHub" 
-				/>
+				>
+					<GithubIcon mode="dark" />
+				</SocialLink>
+
 				
 				<SocialLink 
 					link="https://www.linkedin.com/in/josh-kaye-ca/" 
-					image="/icon/linkedin.svg" 
 					alt="LinkedIn" 
-				/>
+				>
+					<LinkedinIcon mode="dark" />
+				</SocialLink>
 
 				<SocialLink 
 					link="https://www.instagram.com/kaye.360/" 
-					image="/icon/instagram.svg" 
 					alt="Instagram" 
-				/>
+				>
+					<InstagramIcon mode="dark" />
+				</SocialLink>
 
 			</ul>
 
@@ -109,7 +116,7 @@ import SkipToContent from '../components/SkipToContent.astro';
 						This web app has the following notable features:
 					</p>
 		
-					<ul>
+					<ul class="list-disc [&>li]:ml-6">
 						<li>Custom, responsive tailwind layout with light/dark mode</li>
 						<li>React User Interface with custom hooks, React Router, and Tanstack Queries</li>
 						<li>User notifications and a community feed showing user activity</li>
@@ -232,6 +239,11 @@ import SkipToContent from '../components/SkipToContent.astro';
 						title="Full Stack JavaScript path" 
 						subtitle="The Odin Project (127 Lessons)" 
 					/>
+					
+					<Course
+						title="Learn to Code with Ruby"
+						subtitle="Udemy (31.5 hours)"
+					/>
 
 				</CourseList>
 
@@ -254,9 +266,15 @@ import SkipToContent from '../components/SkipToContent.astro';
 					/>
 
 					<Class
-						title="Learn to Code with Ruby"
-						subtitle="Udemy (31.5 hours)"
+						title="TypeScript Full Course"
+						subtitle="Dave Gray (8 hours)"
 					/>
+
+					<Class
+						title="Node/Express Course"
+						subtitle="freeCodeCamp.org (10 hours)"
+					/>
+
 
 				</ClassList>
 
