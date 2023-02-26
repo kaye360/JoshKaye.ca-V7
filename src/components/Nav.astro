@@ -37,7 +37,7 @@
 		</svg>
 	</button>
 
-	<div class="menu-wrapper">
+	<div id="menu-wrapper">
 		<slot />
 	</div>
 
@@ -61,18 +61,19 @@
 
 @media screen and (min-width : 768px) {
   
-  .menu-highlight {
-    position: fixed;
-    top : -10vw;
-    left : -10vh;
-    z-index: 9999;
-    width : 50px;
-    height : 50px;
-    border-radius: 10px;
-    backdrop-filter: invert(100) blur(1px);
-    transform: translateY(-50%);
-    pointer-events: none;
-  }
+	.menu-highlight {
+		position: fixed;
+		top : -10vw;
+		left : -10vh;
+		z-index: 9999;
+		width : 50px;
+		height : 50px;
+		border-radius: 10px;
+		backdrop-filter: invert(100) blur(1px);
+		transform: translateY(-50%);
+		pointer-events: none;
+	}
+
 }
 
 </style>
@@ -81,7 +82,7 @@
 <style is:global>
 
 @media screen and (max-width : 768px) {
-	.menu-wrapper {
+	#menu-wrapper {
 		position : fixed;	
 		inset : 0;
 		z-index: -1;
@@ -92,7 +93,7 @@
 		background-color : hsl( var(--color-primary-300) );
 	}
 
-	.mobile-nav-is-open .menu-wrapper {
+	.mobile-nav-is-open #menu-wrapper {
 		transform: none;
 	}
 

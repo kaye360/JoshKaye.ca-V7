@@ -1,13 +1,14 @@
 ---
 interface Props {
     link: string,
+    id: string
 }
 
-const { link } = Astro.props
+const { link, id } = Astro.props
 ---
 
 <li>
-    <a href={link} class="nav-link inline-block text-xl hover:scale-125 transition-all duration-150">
+    <a href={link} id={id} class="nav-link inline-block text-xl hover:scale-125 transition-all duration-150">
         <slot />
     </a>
 </li>

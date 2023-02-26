@@ -21,6 +21,7 @@ import SkipToContent from '../components/SkipToContent.astro';
 import GithubIcon from '../components/icons/GithubIcon.astro';
 import InstagramIcon from '../components/icons/InstagramIcon.astro';
 import LinkedinIcon from '../components/icons/LinkedinIcon.astro';
+import NavIndicator from '../components/NavIndicator.astro';
 ---
 
 <html lang="en" class="scroll-smooth">
@@ -40,8 +41,8 @@ import LinkedinIcon from '../components/icons/LinkedinIcon.astro';
 
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
-		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
-		<script is:inline src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
+		<script is:raw src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+		<script is:raw src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js"></script>
 
 		 <!-- Primary Meta Tags -->
 		<title>JoshKaye.dev - Web Developer Portfolio - Port Coquitlam, BC</title>
@@ -75,8 +76,11 @@ import LinkedinIcon from '../components/icons/LinkedinIcon.astro';
 
 
 
+		<NavIndicator />
+
+
 		<Nav>
-			<ul id="social-nav" class="flex items-center gap-6 justify-end">
+			<ul id="social-nav" class="relative flex items-center gap-6 justify-end">
 
 				<SocialLink 
 					link="https://github.com/kaye360/" 
@@ -104,11 +108,13 @@ import LinkedinIcon from '../components/icons/LinkedinIcon.astro';
 
 			<ul id="main-nav" class="flex items-center gap-6 justify-end mt-4">
 
-				<NavLink link="#home">home</NavLink>
-				<NavLink link="#portfolio">portfolio</NavLink>
-				<NavLink link="#about">about</NavLink>
-				<NavLink link="/docs/resume.pdf">resume</NavLink>
-				<NavLink link="#contact">contact</NavLink>
+				<NavLink id="navHome" link="#home">home</NavLink>
+				<NavLink id="navPortfolio" link="#portfolio">portfolio</NavLink>
+				<NavLink id="navAbout" link="#about">about</NavLink>
+				<NavLink id="navContact" link="#contact">contact</NavLink>
+				<NavLink id="navResume" link="/docs/resume.pdf">resume</NavLink>
+
+				<li id="menu-indicator"></li>
 
 			</ul>
 		</Nav>
@@ -316,3 +322,4 @@ import LinkedinIcon from '../components/icons/LinkedinIcon.astro';
 
 	</body>
 </html>
+

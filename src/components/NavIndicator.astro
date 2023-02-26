@@ -1,0 +1,66 @@
+---
+
+---
+
+<div id="nav-indicator" class="hidden md:block fixed z-[99999] border border-primary-300 transition-all duration-500 ease-[cubic-bezier(0.430,1.595,0.825,0.800)]">
+</div>
+
+
+<script>
+
+type PlaceIndicatorProps = 'Home' | 'Portfolio' | 'About' | 'Contact' | 'Current'
+
+var currentSection: PlaceIndicatorProps = 'Home'
+
+function placeIndicator(current : PlaceIndicatorProps = 'Home') {
+
+    const indicator = document.querySelector('#nav-indicator') as HTMLDivElement
+
+    let currentRect: DOMRect
+
+    if(current === 'Current') {
+        currentRect = document.querySelector(`#nav${currentSection}`)?.getBoundingClientRect() as DOMRect
+    } else {
+        currentRect = document.querySelector(`#nav${current}`)?.getBoundingClientRect() as DOMRect
+        currentSection = current
+    }
+
+    indicator.style.top = currentRect.top -3 + 'px'
+    indicator.style.height = currentRect.height +6 + 'px'
+    indicator.style.left = currentRect.left -11 + 'px'
+    indicator.style.width = currentRect.width +20 + 'px'
+}
+
+window.addEventListener('load', () => placeIndicator('Home'))
+window.addEventListener('resize', () => placeIndicator('Current') )
+
+
+declare namespace gsap {
+    function to(string:string, obj: object): any
+}
+
+const navLinksTriggerEvents : { trigger:string, indicator:PlaceIndicatorProps }[] = [
+    { trigger : '#home',        indicator : 'Home' },
+    { trigger : '#portfolio',   indicator : 'Portfolio' },
+    { trigger : '#skills',      indicator : 'Portfolio' },
+    { trigger : '#about',       indicator : 'About' },
+    { trigger : '#education',   indicator : 'About' },
+    { trigger : '#contact',     indicator : 'Contact' },
+]
+
+if( window.innerWidth >= 768  ) {
+    navLinksTriggerEvents.forEach( link => {
+        gsap.to('#nav-indicator', {
+            scrollTrigger : {
+                trigger : link.trigger,
+                start : 'top 40%',
+                end : 'bottom 40%',
+                toggleActions : "restart reverse none none",
+                onEnter : () => placeIndicator(link.indicator),
+                onEnterBack : () => placeIndicator(link.indicator)
+            }
+        })
+    })
+}
+
+</script>
