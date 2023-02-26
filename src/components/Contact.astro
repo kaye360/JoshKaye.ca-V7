@@ -45,7 +45,7 @@ import Type from "./Type.astro";
 
 			<div class="flex gap-4 items-center">
 
-				<input type="submit" value="Send Email" class="cursor-pointer bg-primary-300 text-primary-800 font-bold px-4 py-2" />
+				<input type="submit" value="Send Email" class="cursor-pointer bg-primary-300 text-primary-800 font-bold px-4 py-2 hover:tracking-[0.3rem] transition-all duration-150" />
 				
 				<div id="form-result" class="flex items-center gap-2"></div>
 
@@ -70,9 +70,6 @@ import Type from "./Type.astro";
 			<EmailIcon mode="light" />
 			<a href="mailto:jkaye@shaw.ca">jkaye@shaw.ca</a>
 
-			<LocationIcon mode="light" />
-			<span class="clr-secondary-5"> port coquitlam, bc</span>
-
 			<GithubIcon mode="light" />
 			<a href="https://github.com/kaye360" target="_blank">
 				@kaye360
@@ -87,6 +84,10 @@ import Type from "./Type.astro";
 			<a href="https://www.instagram.com/kaye.360/" target="_blank">
 				@kaye.360
 			</a>
+			
+			<LocationIcon mode="light" />
+			<span class="clr-secondary-5"> port coquitlam, bc</span>
+
 		</div>
 	</Type>
 </section>
@@ -109,6 +110,10 @@ import Type from "./Type.astro";
 
 	.contact-info-grid {
 		grid-template-columns: 25px 1fr;
+	}
+
+	a:hover {
+		text-decoration: underline;
 	}
 
 </style>
