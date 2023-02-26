@@ -2,9 +2,9 @@
 import Icon from "./Icon.astro";
 ---
 
-<section id="home" class="relative grid md:grid-cols-2 items-center gap-8 max-w-7xl min-h-[100vh] overflow-hidden px-def">
+<section id="home" class="relative grid md:grid-cols-2 items-center gap-8 max-w-7xl min-h-screen overflow-hidden px-def">
 
-    <div id="hero-intro" class="flex flex-col gap-8 text-xl">
+    <div id="hero-intro" class="flex flex-col gap-8 text-xl translate-y-[-7.5vh] md:translate-y-0">
         <div class="slide-right">
 
             <p class="-rotate-3"> hi, I'm Josh and...</p>
@@ -18,13 +18,13 @@ import Icon from "./Icon.astro";
 
         </div>
 
-        <div class="slide-right -rotate-1">
+        <div class="-rotate-1">
             hiring a web developer for your next project? based out of Port
             Coquitlam, BC, I am ready to help you out.
         </div>
         
-        <div class="slide-right rotate-1">
-            <a href="#portfolio" class="inline-flex items-center gap-2 hover:bg-secondary-200 bg-primary-800 text-secondary-200 hover:text-primary-800 px-8 py-6 font-bold transition-all duration-175"> 
+        <div class="rotate-1">
+            <a href="#portfolio" class="inline-flex items-center gap-2 hover:bg-secondary-200 bg-primary-800 text-secondary-200 hover:text-primary-800 mb-4 px-8 py-6 font-bold transition-all duration-175"> 
                 view my work
                 <Icon>rocket_launch</Icon>
             </a>
@@ -36,7 +36,7 @@ import Icon from "./Icon.astro";
         </div>
     </div>
 
-    <div class="relative slide-left">
+    <div class="absolute bottom-0 opacity-10 md:opacity-100 z-0 md:relative" >
         <div id="hero-img-overlay"></div>
         <img src="./img/hero-2.png" />
     </div>

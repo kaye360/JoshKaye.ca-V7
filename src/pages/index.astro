@@ -41,7 +41,7 @@ import LinkedinIcon from '../components/icons/LinkedinIcon.astro';
 
 		<title>JoshKaye.ca - Web Developer Portfolio - Port Coquitlam, BC</title>
 	</head>
-	<body class="bg-primary-100 font-primary">
+	<body class="bg-primary-100 font-primary p-0 m-0">
 
 
 
@@ -54,7 +54,7 @@ import LinkedinIcon from '../components/icons/LinkedinIcon.astro';
 
 
 		<Nav>
-			<ul class="flex items-center gap-6 justify-end">
+			<ul id="social-nav" class="flex items-center gap-6 justify-end">
 
 				<SocialLink 
 					link="https://github.com/kaye360/" 
@@ -80,15 +80,13 @@ import LinkedinIcon from '../components/icons/LinkedinIcon.astro';
 
 			</ul>
 
-			<ul class="flex items-center gap-6 justify-end mt-4">
+			<ul id="main-nav" class="flex items-center gap-6 justify-end mt-4">
 
-				<li>{'{'}</li>
 				<NavLink link="#home">home</NavLink>
 				<NavLink link="#portfolio">portfolio</NavLink>
 				<NavLink link="#about">about</NavLink>
-				<NavLink link="#resume">resume</NavLink>
+				<NavLink link="/docs/resume.pdf">resume</NavLink>
 				<NavLink link="#contact">contact</NavLink>
-				<li>{'}'}</li>
 
 			</ul>
 		</Nav>

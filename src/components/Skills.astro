@@ -38,7 +38,7 @@ import Icon from "./Icon.astro";
 
 .skill {
     display : inline-block;
-    padding-inline : 1rem;
+    padding-right : 1rem;
     padding-block : 0.5rem;
 }
 
@@ -47,12 +47,14 @@ import Icon from "./Icon.astro";
 
 <script is:inline>
 
-gsap.to('.skill', {
-    x : 50,
-    duration : 3,
-    repeat : -1,
-    stagger : 0.5,
-    yoyo : true
+gsap.matchMedia().add('(min-width: 768px)', () => {
+    gsap.to('.skill', {
+        x : 50,
+        duration : 3,
+        repeat : -1,
+        stagger : 0.5,
+        yoyo : true
+    })
 })
 
 </script>

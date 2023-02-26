@@ -89,11 +89,40 @@
 		transition: all 250ms;
 		display : grid;
 		place-items: center;
+		background-color : hsl( var(--color-primary-300) );
 	}
 
 	.mobile-nav-is-open .menu-wrapper {
 		transform: none;
 	}
+
+	.mobile-nav-is-open #main-nav {
+		flex-direction: column;
+	}
+
+	.mobile-nav-is-open .nav-link {
+		font-size: 2rem;
+	}
+
+	.menu-btn-line-top,
+	.menu-btn-line-bottom {
+		transform-origin: center;
+		transition: all 500ms ease-in-out;
+	}
+
+	/* Mobile Menu is Active */
+	.mobile-nav-is-open .menu-btn-line-top {
+		transform: 
+			rotate(225deg) 
+			translate(-1px, 5px);
+	}
+
+	.mobile-nav-is-open .menu-btn-line-bottom {
+		transform: 
+			rotate(135deg)
+			translate(1px, -5px);
+	}
+
 }
 
 </style>
