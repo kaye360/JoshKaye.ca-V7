@@ -1,11 +1,14 @@
 ---
+import Icon from "./Icon.astro";
 ---
 
 <nav class="fixed top-0 left-0 right-0 z-[9999] border-b border-primary-200 bg-primary-100 bg-opacity-95">
 <div class="flex justify-between items-center py-4 mx-auto px-def w-full max-w-7xl">
 
-	<a href="#home" class="relative text-3xl font-bold text-primary-700 tracking-wide hover:tracking-[0.5rem] transition-all duration-150 logo">
-		JOSHKAYE.CA
+	<a href="#home" class="relative flex items-center gap-2 text-3xl font-bold text-primary-700 tracking-wide hover:tracking-[0.5rem] transition-all duration-150 logo">
+		<Icon>terminal</Icon>
+		JOSHKAYE.dev
+		<!-- J<Icon class="text-3xl rotate-[22deg]">offline_bolt</Icon>SHKAYE.dev -->
 	</a>
 
 	<button id="mobile-nav-button" class="md:hidden">
