@@ -3,11 +3,11 @@ interface Props {
     link: string,
     alt: string
 }
-const {link, image, alt} = Astro.props
+const {link, alt} = Astro.props
 ---
 
 <li>
-    <a href={link} target="_blank">
+    <a href={link} aria-label={alt} target="_blank">
         <slot />
     </a>
 </li>

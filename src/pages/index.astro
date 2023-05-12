@@ -131,11 +131,11 @@ import NavIndicator from '../components/NavIndicator.astro';
 			<Portfolio>
 
 				<Project
-					heading="BookStack (Featured)"
+					heading="BookStack"
 					subheading="Personal Library Web App"
 					topics="Full-Stack, React, TypeScript, PHP, MYSQL, Tailwind"
 					image="/img/bookstack.png"
-					demoLink="https://bookstack.joshkaye.ca/"
+					liveLink="https://bookstack.joshkaye.ca/"
 					repoLink="https://github.com/kaye360/bookstack-v2"
 				>
 					<p>
@@ -152,41 +152,36 @@ import NavIndicator from '../components/NavIndicator.astro';
 						<li>GitHub Actions for automatic continuous deployment</li>
 					</ul>
 				</Project>
-			
+
 				<Project
-					heading="Space App"
-					subheading="Solar System Web App"
-					topics="React, TypeScript, Tailwind"
-					image="/img/space-app.png"
-					demoLink="https://joshs-space-app.netlify.app"
-					repoLink="https://github.com/kaye360/space-app"
+					heading="CashFlo"
+					subheading="Personal Expense Web App"
+					topics="PHP, MYSQL, Tailwind, MVC, OOP, Routing"
+					image="/img/cashflo.png"
+					liveLink="https://cashflo.joshkaye.ca/"
+					repoLink="https://github.com/kaye360/CashFlo"
 				>
 					<p>
-						This mini app fetches info from the Solar System OpenData API and features a custom UI for browsing information about each planet. The UI animations were made custom with CSS.
+						This web app features User sign up and authentication, as well as adding transactions, budgets. The app also transforms this data and displays it in a UI with eye-pleasing graphs.
 					</p>
-				</Project>
-			
-				<Project
-					heading="Spendly"
-					subheading="Money Tracking Web App"
-					topics="Full-Stack, PHP, MYSQL, react, javascript, CSS"
-					image="/img/spendly.png"
-					demoLink="https://joshkaye.ca/projects/spendly/"
-					repoLink="https://github.com/kaye360/money-tracker"
-				>
 					<p>
-						Spendly is a custom Full-Stack web app that I've programmed from the ground up. It features a front-end UI made with React, and a backend with PHP and MYSQL.
-					</p>
-
-					<p>
-						User info, budgets, transactions, and forecast entries are stored in a MYSQL databased that can be accessed through my custom API.
-					</p>
-
-					<p>
-						Hint: Log in as "guest123" with password "123456"
+						Feel free to test out the app by signing is as "Guest123" and password "123456"
 					</p>
 				</Project>
 
+				<Project
+					heading="React Mario!"
+					subheading="Super Mario Browser Game"
+					topics="React, Tailwind, Gaming"
+					image="/img/mario.png"
+					liveLink="https://react-mario.netlify.app/"
+					repoLink="https://github.com/kaye360/react-mario"
+				>
+					<p>
+						A custom made browser version of the classic game Super Mario. Try it out by using the left, right, and up arrows to move!
+					</p>
+				</Project>
+			
 				<Project
 					heading="Vitality Fitness"
 					subheading="Personal Trainer Wordpress Site"
@@ -218,12 +213,25 @@ import NavIndicator from '../components/NavIndicator.astro';
 						I created a custom, responsive WordPress theme for for Tri City Bikes and Brews.
 					</p>
 				</Project>
+							
+				<Project
+					heading="Space App"
+					subheading="Solar System Web App"
+					topics="React, TypeScript, Tailwind"
+					image="/img/space-app.png"
+					liveLink="https://joshs-space-app.netlify.app"
+					repoLink="https://github.com/kaye360/space-app"
+				>
+					<p>
+						This mini app fetches info from the Solar System OpenData API and features a custom UI for browsing information about each planet. The UI animations were made custom with CSS.
+					</p>
+				</Project>
 
 				<Project
 					heading="More GitHub Projects"
 					subheading="Smaller/Experimental projects of mine"
 					image="/img/github.png"
-					liveLink="https://github.com/kaye360"
+					repoLink="https://github.com/kaye360"
 				>
 					<p>
 						You can view more of my work on my GitHub account. Here I have smaller, experimental, and tutorial projects that I have created.
@@ -299,6 +307,11 @@ import NavIndicator from '../components/NavIndicator.astro';
 					<Class
 						title="Node/Express Course"
 						subtitle="freeCodeCamp.org (10 hours)"
+					/>
+
+					<Class
+						title="Tailwind Full Course"
+						subtitle="Dave Gray (3 hours)"
 					/>
 
 
