@@ -5,56 +5,56 @@ import Icon from "./Icon.astro";
 
 <section id="skills" class="bg-primary-800 text-secondary-200 w-full">
 
-    <div class="max-width px-def py-16">
+    <div class="max-width px-def py-16 font-primary">
 
         <h2 class="mb-8">
             <Icon class="text-4xl">keyboard_alt</Icon>
             i work well with 
         </h2>
 
-        <p class="text-xl max-w-lg">
-            <span class="skill">html</span>
-            <span class="skill">css</span>
-            <span class="skill">tailwind</span>
-            <span class="skill">javascript</span>
-            <span class="skill">typescript</span>
-            <span class="skill">react</span>
-            <span class="skill">node/express</span>
-            <span class="skill">mongoDB</span>
-            <span class="skill">php</span>
-            <span class="skill">mysql</span>
-            <span class="skill">laravel</span>
-            <span class="skill">git</span>
-            <span class="skill">figma</span>
-            <!-- html css tailwind javascript typescript react node/express mongoDB php mysql laravel git figma -->
-        </p>
+        <div class="grid md:grid-cols-2 items-center">
+
+            <ul class="text-xl max-w-lg grid grid-cols-2 md:grid-cols-3 gap-4 list-disc px-4">
+                <li class="skill">react/redux</li>
+                <li class="skill">tailwind</li>
+                <li class="skill">node/express</li>
+                <li class="skill">mongoDB</li>
+                <li class="skill">typescript</li>
+                <li class="skill">firebase</li>
+                <li class="skill">php</li>
+                <li class="skill">mysql</li>
+                <li class="skill">laravel</li>
+                <li class="skill">git</li>
+                <li class="skill">figma</li>
+            </ul>
+
+            <div class="hidden md:block text-center">
+                <Icon class="text-[15rem] text-primary-700" id="skills-rocket">rocket</Icon>
+            </div>
+
+        </div>
 
     </div>
 
 </section>
 
 
-<style>
-
-.skill {
-    display : inline-block;
-    padding-right : 1rem;
-    padding-block : 0.5rem;
-}
-
-</style>
-
 
 <script is:inline>
 
-gsap.matchMedia().add('(min-width: 768px)', () => {
-    gsap.to('.skill', {
-        x : 50,
-        duration : 3,
-        repeat : -1,
-        stagger : 0.5,
-        yoyo : true
+    gsap.from(['#skills-rocket'], {
+        scrollTrigger : {
+            trigger : '#skills',
+            start : 'top 100%',
+            end : 'bottom 0%',
+            scrub : 1,
+            toggleActions : "restart reverse none none",
+        },
+        y: 500,
+        x : -100,
+        rotate : 90,
+        duration : 2,
+        ease : 'power4.out'
     })
-})
 
 </script>

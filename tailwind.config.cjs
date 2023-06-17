@@ -4,7 +4,7 @@ module.exports = {
 	theme: {
 		extend: {
 			fontFamily : {
-				'primary' : ['Hanken Grotesk', 'Poppins', 'Helvetica', 'sans-serif'],
+				'primary' : ['Syne', 'Poppins', 'Helvetica', 'sans-serif'],
 				'secondary' : ['Poppins', 'Helvetica', 'sans-serif']
 			},
 			colors : {

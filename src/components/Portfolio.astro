@@ -5,14 +5,14 @@ import Icon from "./Icon.astro";
 
 <section id="portfolio">
     
-    <h2 class="bg-primary-800 text-primary-200 py-8">
+    <h2 class="bg-primary-800 text-primary-200 py-8 font-primary">
         <span class="block max-width mx-auto px-def">
             <Icon class="text-4xl">design_services</Icon>
             some of my work
         </span>
     </h2>
 
-    <div class="flex flex-col gap-24 my-12">
+    <div class="grid gap-0 my-12">
 
         <slot />
 
@@ -37,10 +37,10 @@ import Icon from "./Icon.astro";
                 scrub : 1,
                 toggleActions : "restart reverse none none",
             },
-            opacity : 0.2,
-            rotate : 5,
+            opacity : 0.5,
+            rotate : 3,
             scale : 0.7,
-            x: 100,
+            x: 50,
             duration : 3,
             ease : 'back'
         })

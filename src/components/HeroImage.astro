@@ -1,0 +1,55 @@
+---
+
+---
+<div class="relative
+            col-start-1 col-span-1 row-start-1 row-span-1 z-10 opacity-10
+            md:col-start-auto md:row-start-auto md:opacity-100"
+>
+    <div id="hero-img-overlay"></div>
+    <img src="./img/hero-2.png" alt="Computer graphic" />
+</div>
+
+
+
+<style>
+
+
+@media screen and (min-width : 769px) {
+
+    #hero-img-overlay {
+        position : absolute;
+        inset : 0;
+        z-index: 200;
+        rotate : -3deg;
+        backdrop-filter: invert(100);
+        scale : 0.1
+
+    }
+}
+
+</style>
+
+
+
+<script is:inline>
+
+gsap.to('#hero-img-overlay', {
+    scale : 0.7,
+    duration : 0.5,
+    ease : 'back'
+})
+
+gsap.to(['#hero-img-overlay'], {
+    scrollTrigger : {
+        trigger : '#hero',
+        start : 'top 0%',
+        end : 'bottom 0%',
+        scrub : 2,
+        toggleActions : "restart reverse none none",
+    },
+    y: 100,
+    duration : 2,
+    ease : 'power4.out'
+})
+
+</script>

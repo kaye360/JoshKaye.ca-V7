@@ -1,105 +1,114 @@
 ---
-import Icon from "./Icon.astro";
+import HeroPrimaryCTA from "./buttons/HeroPrimaryCTA.astro"
+import HeroSecondaryCTA from "./buttons/HeroSecondaryCTA.astro"
+import HeroImage from "./HeroImage.astro"
 ---
 
-<section id="home" class="relative grid md:grid-cols-2 items-center gap-8 max-w-7xl min-h-screen overflow-hidden px-def">
+<section id="hero" class="relative grid md:grid-cols-2 items-center gap-8 max-w-7xl min-h-screen md:min-h-fit md:mt-8 mx-auto px-def ">
 
-    <div id="hero-intro" class="flex flex-col gap-8 text-xl translate-y-[-7.5vh] md:translate-y-0">
-        <div class="slide-right">
+    <div 
+        id="hero-intro" 
+        class="grid gap-6 
+               col-start-1 col-span-1 row-start-1 row-span-1 z-20 
+               md:col-start-auto md:row-start-auto
+               -rotate-1 text-xl font-secondary font-normal text-primary-600"
+    >
 
-            <p class="-rotate-3"> hi, I'm Josh and...</p>
+        <div>
 
-            <h1 class="-rotate-2">
-                i develop
-                <span class="font-secondary text-6xl highlight"> websites</span>
-                and
-                <span class="font-secondary text-6xl highlight"> web apps</span>
-            </h1>
+            <div class="overflow-hidden">
+                <p class="animate-pop-in relative w-fit p-2 mb-2 font-medium text-primary-900">
+                    <span id="hero-highlight"></span>
+                    hi, I'm Josh and...
+                </p>
+            </div>
+
+            <div class="overflow-hidden">
+                <h1 class="animate-pop-in text-3xl">
+                    i develop
+                    <span class="text-5xl text-primary-700">
+                        websites
+                    </span>
+                    and
+                    <span class="text-5xl text-primary-700"> 
+                        web apps
+                    </span>
+                </h1>
+            </div>
 
         </div>
 
-        <div class="-rotate-1">
-            hiring a web developer for your next project? based out of Port
-            Coquitlam, BC, I am ready to help you out.
+        <div class="overflow-hidden">
+            <p class="animate-pop-in">
+                hiring a web developer for your next project? based out of Port
+                Coquitlam, BC, I am ready to help you out.
+            </p>
         </div>
         
-        <div class="rotate-1">
-            <a href="#portfolio" class="inline-flex items-center gap-2 hover:bg-secondary-200 bg-primary-800 text-secondary-200 hover:text-primary-800 mb-4 px-8 py-6 font-bold transition-all duration-175"> 
-                view my work
-                <Icon>rocket_launch</Icon>
-            </a>
-            
-            <a href="#contact" class="inline-flex items-center gap-2 px-6 font-bold hover:tracking-[0.3rem] transition-all duration-150">
-                let's talk
-                <Icon>chat_bubble_outline</Icon>
-            </a>
+        <div id="hero-cta-buttons" class="overflow-hidden w-fit">
+            <div class="animate-pop-in grid md:grid-cols-[auto_auto] gap-4 items-stretch">
+                <HeroPrimaryCTA />
+                <HeroSecondaryCTA />
+            </div>
         </div>
     </div>
 
-    <div class="absolute bottom-0 opacity-10 md:opacity-100 z-0 md:relative" >
-        <div id="hero-img-overlay"></div>
-        <img src="./img/hero-2.png" alt="Computer graphic" />
-    </div>
+    <HeroImage />
 
 </section>
 
 
+
+
 <style>
+
 
 @media screen and (min-width : 769px) {
 
-    #hero-img-overlay {
+    #hero-highlight {
         position : absolute;
         inset : 0;
+        width : 100%;
         z-index: 200;
-        rotate : -3deg;
-        backdrop-filter: invert(100);
-        scale : 0.1
-    }
-}
-
-@supports ( -webkit-text-stroke: 1.5px hsl( var(--color-primary-600) ) ) {
-
-    .highlight {
-        -webkit-text-stroke: 1.5px hsl( var(--color-primary-600) );
-        color : transparent;
-        background: linear-gradient(
-            90deg, 
-            transparent 50%, 
-            hsl( var(--color-primary-300) ) 55%, 
-            transparent
-        );
-
-        background-size : 200%;
-        background-position : left;
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-
-        animation : highlight-anim 10s ease-in-out infinite alternate;
+        rotate : -1deg;
+        backdrop-filter: invert(100%);
+        animation : highlight-anim 3s cubic-bezier(.45,.51,0,1.19);
     }
 
     @keyframes highlight-anim {
-        from { background-position : left; }
-        70% { background-position : left; }
-        to { background-position : right; }
+        from {
+            width: 0%;
+        }
+        50% {
+            width : 100%;
+        }
     }
-
 }
+
 </style>
+        
 
-
+        
 <script is:inline>
 
+/**
+ * Remove overflow-hidden on CTA buttons
+ * 
+ * Need this because otherwise rocket animation is cut off
+ */
+const heroCtaButtons = document.querySelector('#hero-cta-buttons')
 
-gsap.to('#hero-img-overlay', {
-    scale : 0.7,
-    duration : 0.5,
-    ease : 'back'
-})
+setTimeout( () => {
+    heroCtaButtons.classList.remove('overflow-hidden')
+}, 1000)
 
-gsap.to('#hero-img-overlay', {
+
+/**
+ * Hero hightlight animation (hi, i'm Josh and...)
+ */
+gsap.to(['#hero-highlight'], {
     scrollTrigger : {
-        trigger : '#home',
+        trigger : '#hero',
         start : 'top 0%',
         end : 'bottom 0%',
         scrub : 2,
@@ -110,17 +119,16 @@ gsap.to('#hero-img-overlay', {
     ease : 'power4.out'
 })
 
-gsap.to('#hero-intro', {
-    scrollTrigger : {
-        trigger : '#home',
-        start : 'top 0%',
-        end : 'bottom 0%',
-        scrub : 2,
-        toggleActions : "restart reverse none none",
-    },
-    y: 50,
+
+/**
+ * Pop in animation for each hero-intro element
+ */
+gsap.from('.animate-pop-in', {
+    y: 100,
     duration : 1.3,
-    ease : 'power4.out'
+    ease : 'power4.out',
+    stagger : 0.1,
+    delay : 0.3,
 })
 
 </script>

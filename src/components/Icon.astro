@@ -1,11 +1,12 @@
 ---
 interface Props {
-    class? : string
+    class? : string,
+    id?    : string
 }
 
-const { class: className } = Astro.props
+const { class: className, id } = Astro.props
 ---
 
-<span class={`material-icons-outlined ${className}`}>
+<span class={`material-icons-outlined ${className}`} id={id}>
     <slot />
 </span>

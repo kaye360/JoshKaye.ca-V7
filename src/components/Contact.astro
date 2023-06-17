@@ -8,7 +8,7 @@ import LocationIcon from "./icons/LocationIcon.astro";
 import Type from "./Type.astro";
 ---
 
-<section id="contact" class="grid md:grid-cols-2 gap-8 max-width px-def py-16 bg-primary-800 text-primary-100">
+<section id="contact" class="grid md:grid-cols-2 gap-8 max-width px-def py-16 bg-gradient-to-tr from-primary-800 to-primary-600 text-primary-100">
 
 	<div class="md:col-span-2">
 		<h2 class="flex items-center gap-2">
@@ -19,7 +19,7 @@ import Type from "./Type.astro";
 		<p class="mt-8">* required fields</p>
 	</div>
 
-	<form id="email-form" action="email-handler.php" method="post" data-netlify="true">
+	<form id="email-form" method="post" data-netlify="true">
 		<input type="hidden" name="subject" value="JoshKaye.ca Inquiry" />
 		
 		<div class="flex flex-col gap-8">
@@ -106,6 +106,7 @@ import Type from "./Type.astro";
 		max-width: 50ch;
 		background-color: hsl( var(--color-primary-700) );
 		letter-spacing: 0.05rem;
+		border : 2px solid hsl( var(--color-primary-600) )
 	}
 
 	.contact-info-grid {
@@ -123,20 +124,19 @@ import Type from "./Type.astro";
 const handleSubmit = (event: Event) => {
 	event.preventDefault();
 
-	const myForm: any = event.target
+	const myForm: any 	= event.target
 	const formData: any = new FormData(myForm)
-	const formResult = document.querySelector('#form-result') as HTMLDivElement
+	const formResult 	= document.querySelector('#form-result') as HTMLDivElement
 
 	formResult.innerHTML = '<img src="/icon/email-loading.svg"> Sending...'
 
 	fetch("/", {
-		method: "POST",
-		headers: { "Content-Type": "application/x-www-form-urlencoded" },
-		body: new URLSearchParams(formData).toString(),
+		method  : "POST",
+		headers : { "Content-Type": "application/x-www-form-urlencoded" },
+		body    : new URLSearchParams(formData).toString(),
 	})
 	.then( () => formResult.innerHTML = 'Email Sent!' )
-	.catch( () => formResult.innerHTML = 
-		'Error. Please try another method.'
+	.catch( () => formResult.innerHTML = 'Error. Please try another method.'
 )}
 
 const form = document.querySelector("form") as HTMLFormElement

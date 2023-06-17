@@ -1,0 +1,76 @@
+---
+import Icon from "../Icon.astro"
+---
+
+<a href="#portfolio" class="relative z-50 inline-flex items-center gap-2 bg-gradient-to-r from-primary-800 to-primary-700 hover:from-secondary-200 hover:to-secondary-100 text-secondary-100 hover:text-primary-800 font-primary px-8 py-6 font-bold transition-all duration-175"> 
+    view my work
+    <span id="rocket-wrapper" class="relative">
+        <Icon id="rocket-icon" class="rotate-[45deg]">rocket</Icon>
+        <span 
+            id="rocket-flare"
+            class="absolute bottom-1 -left-1 w-3 h-3 bg-orange-400"
+        ></span>
+    </span>
+</a>
+
+
+
+
+<style>
+
+#rocket-wrapper {
+    --rocket-timing-function  : cubic-bezier(.37,.65,.62,1.04);
+    --rocket-orbit-radius     : 200px;
+    --rocket-orbit-radius-neg : -200px;
+}
+
+a:hover #rocket-wrapper {
+    translate : var(--rocket-orbit-radius);
+    animation: rocket-orbit 3s var(--rocket-timing-function) both;
+}
+
+#rocket-flare {
+    clip-path: polygon(0 31%, 59% 0, 100% 0, 100% 34%, 75% 100%, 64% 62%, 0 100%, 35% 44%);
+    opacity: 0;
+}
+
+a:hover #rocket-flare {
+    animation: rocket-flare 3s var(--rocket-timing-function) both;
+}
+
+@keyframes rocket-orbit {
+    /* 
+        Orbit animation code found here:
+        https://www.useragentman.com/blog/2013/03/03/animating-circular-paths-using-css3-transitions/
+    */
+    0% {
+        transform: translateX( var(--rocket-orbit-radius-neg )) translateY(0px);
+    }
+    10% {
+        transform: translateX( calc( var(--rocket-orbit-radius-neg) - 10px ) ) translateY(30px);
+    }
+    12% {
+        transform:rotate(0deg) translateX( var(--rocket-orbit-radius-neg )) translateY(0px);
+    }
+    100%{
+        transform:rotate(360deg) translate( var(--rocket-orbit-radius-neg )) rotate(-360deg);
+    }
+}
+
+@keyframes rocket-flare {
+    5%, 100% {
+        opacity : 0;
+        scale: 1;
+    }
+    10%, 90% {
+        opacity: 1;
+    }
+    10% {
+        scale : 1.5;
+    }
+    30% {
+        scale : 1;
+    }
+}
+
+</style>

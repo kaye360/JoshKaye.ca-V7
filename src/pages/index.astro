@@ -37,7 +37,9 @@ import NavIndicator from '../components/NavIndicator.astro';
 
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 		<link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+		<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
 
@@ -64,8 +66,12 @@ import NavIndicator from '../components/NavIndicator.astro';
 		<meta name="twitter:image" content="https://joshkaye.dev/favicon/card.png">
 
 	</head>
-	<body class="bg-primary-100 font-primary p-0 m-0">
+	<body class="bg-primary-100 font-primary text-lg p-0 m-0">
 
+		<div 
+			id="home"
+			class="absolute top-0 left-0 h-0 w-0"
+		></div>
 
 
 		<SkipToContent />		
@@ -106,7 +112,7 @@ import NavIndicator from '../components/NavIndicator.astro';
 
 			</ul>
 
-			<ul id="main-nav" class="flex items-center gap-6 justify-end mt-4">
+			<ul id="main-nav" class="flex items-center gap-8 justify-end mt-4">
 
 				<NavLink id="navHome" link="#home">home</NavLink>
 				<NavLink id="navPortfolio" link="#portfolio">portfolio</NavLink>
@@ -114,13 +120,13 @@ import NavIndicator from '../components/NavIndicator.astro';
 				<NavLink id="navContact" link="#contact">contact</NavLink>
 				<NavLink id="navResume" link="/docs/resume.pdf">resume</NavLink>
 
-				<li id="menu-indicator"></li>
+				<!-- <li id="menu-indicator"></li> -->
 
 			</ul>
 		</Nav>
 
 
-		<main id="content" class="flex flex-col items-center gap-24">
+		<main id="content" class="grid items-center gap-12 md:gap-24">
 
 
 
@@ -129,35 +135,37 @@ import NavIndicator from '../components/NavIndicator.astro';
 
 
 			<Portfolio>
-
+				
 				<Project
-					heading="BookStack"
-					subheading="Personal Library Web App"
-					topics="Full-Stack, React, TypeScript, PHP, MYSQL, Tailwind"
-					image="/img/bookstack.png"
-					liveLink="https://bookstack.joshkaye.ca/"
-					repoLink="https://github.com/kaye360/bookstack-v2"
+					heading="1. Quark Social"
+					subheading="Social Media Microblogging App"
+					topics="React, TypeScript, Redux, Firebase"
+					image="/img/projects/quark.png"
+					liveLink="https://quark-social.netlify.app/"
+					repoLink="https://github.com/kaye360/firebase-twitter-clone"
 				>
-					<p>
-						This web app has the following notable features:
-					</p>
-		
-					<ul class="list-disc [&>li]:ml-6">
-						<li>Custom, responsive tailwind layout with light/dark mode</li>
-						<li>React User Interface with custom hooks, React Router, and Tanstack Queries</li>
-						<li>User notifications and a community feed showing user activity</li>
-						<li>User signup, login, and authentication</li>
-						<li><strong>Custom REST API and router</strong> with user defined routes</li>
-						<li>Backend database class to build queries efficiently</li>
-						<li>GitHub Actions for automatic continuous deployment</li>
-					</ul>
-				</Project>
+					<div>
+						<p class="mb-2">
+							Quark is a social media web app similar to Twitter and Facebook. It uses the following technologies:
+						</p>
+	
+						<ul class="list-disc pl-6">
+							<li>React/Redux</li>
+							<li>Typescript</li>
+							<li>Google Firebase</li>
+							<li>Tailwind</li>
+							<li>Framer Motion</li>
+							<li>Netlify</li>
+						</ul>
+					</div>
 
+				</Project>
+				
 				<Project
-					heading="CashFlo"
+					heading="2. CashFlo"
 					subheading="Personal Expense Web App"
 					topics="PHP, MYSQL, Tailwind, MVC, OOP, Routing"
-					image="/img/cashflo.png"
+					image="/img/projects/cashflo.png"
 					liveLink="https://cashflo.joshkaye.ca/"
 					repoLink="https://github.com/kaye360/CashFlo"
 				>
@@ -168,12 +176,12 @@ import NavIndicator from '../components/NavIndicator.astro';
 						Feel free to test out the app by signing is as "Guest123" and password "123456"
 					</p>
 				</Project>
-
+				
 				<Project
-					heading="React Mario!"
+					heading="3. React Mario!"
 					subheading="Super Mario Browser Game"
 					topics="React, Tailwind, Gaming"
-					image="/img/mario.png"
+					image="/img/projects/mario.png"
 					liveLink="https://react-mario.netlify.app/"
 					repoLink="https://github.com/kaye360/react-mario"
 				>
@@ -181,12 +189,35 @@ import NavIndicator from '../components/NavIndicator.astro';
 						A custom made browser version of the classic game Super Mario. Try it out by using the left, right, and up arrows to move!
 					</p>
 				</Project>
+
+				<Project
+					heading="4. BookStack"
+					subheading="Personal Library Web App"
+					topics="Full-Stack, React, TypeScript, PHP, MYSQL, Tailwind"
+					image="/img/projects/bookstack.png"
+					liveLink="https://bookstack.joshkaye.ca/"
+					repoLink="https://github.com/kaye360/bookstack-v2"
+				>
+					<div>
+						<p class="mb-2">
+							This web app has the following notable features:
+						</p>
+			
+						<ul class="list-disc [&>li]:ml-6">
+							<li>Custom, responsive User Interface made with React and Tailwind</li>
+							<li>User notifications and a community feed showing user activity</li>
+							<li>User signup, login, and authentication</li>
+							<li><strong>Custom REST API and router</strong> with user defined routes</li>
+							<li>GitHub Actions for automatic continuous deployment</li>
+						</ul>
+					</div>
+				</Project>
 			
 				<Project
-					heading="Vitality Fitness"
+					heading="5. Vitality Fitness"
 					subheading="Personal Trainer Wordpress Site"
 					topics="HTML, CSS, Wordpress, PHP"
-					image="/img/vitality-fitness.png"
+					image="/img/projects/vitality-fitness.png"
 					liveLink="https://vitality-fitness.ca/"
 				>
 					<p>
@@ -199,10 +230,10 @@ import NavIndicator from '../components/NavIndicator.astro';
 				</Project>
 
 				<Project
-					heading="Bikes & Brews"
+					heading="6. Bikes & Brews"
 					subheading="Local Biking/Beer Enthusiant Wordpress Site"
 					topics="HTML, CSS, Wordpress, PHP"
-					image="/img/bikes-and-brews.png"
+					image="/img/projects/bikes-and-brews.png"
 					liveLink="https://bikesandbrews.ca/"
 				>
 					<p>
@@ -215,22 +246,9 @@ import NavIndicator from '../components/NavIndicator.astro';
 				</Project>
 							
 				<Project
-					heading="Space App"
-					subheading="Solar System Web App"
-					topics="React, TypeScript, Tailwind"
-					image="/img/space-app.png"
-					liveLink="https://joshs-space-app.netlify.app"
-					repoLink="https://github.com/kaye360/space-app"
-				>
-					<p>
-						This mini app fetches info from the Solar System OpenData API and features a custom UI for browsing information about each planet. The UI animations were made custom with CSS.
-					</p>
-				</Project>
-
-				<Project
-					heading="More GitHub Projects"
+					heading="7. More GitHub Projects"
 					subheading="Smaller/Experimental projects of mine"
-					image="/img/github.png"
+					image="/img/projects/github.png"
 					repoLink="https://github.com/kaye360"
 				>
 					<p>

@@ -22,15 +22,14 @@ const {
 } = Astro.props
 ---
 
-<div class="px-def max-width overflow-hidden first:border-none border-t-4 border-primary-300 pt-24">
-<div class="grid md:grid-cols-2 gap-4 project bg-primary-200 bg-opacity-70 p-8">
+<div class="max-width overflow-hidden first:border-none border-t-4 border-primary-300">
+<div class="grid md:grid-cols-2 md:items-center gap-4 project bg-primary-200 bg-opacity-40 py-16 px-def min-h-screen">
         
     <Type>
         <h3 class="font-semibold text-primary-700">{heading}</h3>
         <span class=" text-primary-700">{subheading}</span>
         
-
-        { topics && <p class=" text-primary-500">{topics}</p> }
+        { topics && <p class=" text-primary-600">{topics}</p> }
         
         <slot />
         
@@ -41,7 +40,7 @@ const {
         </div>
     </Type>
     
-    <img src={image} alt="Project Screenshot" />
+    <img src={image} alt="Project Screenshot" class="rounded-md drop-shadow-md shadow-primary-300" />
 
 </div>
 </div>
